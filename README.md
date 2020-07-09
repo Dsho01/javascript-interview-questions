@@ -1270,11 +1270,6 @@ Good luck with your interview 😊
 
      **[⬆ Back to Top](#table-of-contents)**
 
-101. ### Who created javascript?
-     JavaScript was created by Brendan Eich in 1995 during his time at Netscape Communications. Initially it was developed under the name `Mocha`, but later the language was officially called `LiveScript` when it first shipped in beta releases of Netscape.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
 102. ### What is the use of preventDefault method?
      The preventDefault() method cancels the event if it is cancelable, meaning that the default action or behaviour that belongs to the event will not occur. For example, prevent form submission when clicking on submit button and prevent opening the page URL when clicking on hyper link are some common usecases.
      ```javascript
@@ -1364,52 +1359,14 @@ Good luck with your interview 😊
 
      **[⬆ Back to Top](#table-of-contents)**
 
-110. ### What is ECMAScript?
-     ECMAScript is the scripting language that forms the basis of JavaScript. ECMAScript standardized by the ECMA International standards organization in the ECMA-262 and ECMA-402 specifications. The first edition of ECMAScript was released in 1997.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-111. ### What is JSON?
-     JSON (JavaScript Object Notation) is a lightweight format that is used for data interchanging. It is based on a subset of JavaScript language in the way objects are built in JavaScript.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-112. ### What are the syntax rules of JSON?
-     Below are the list of syntax rules of JSON
-     1. The data is in name/value pairs
-     2. The data is separated by commas
-     3. Curly braces hold objects
-     4. Square brackets hold arrays
-
-     **[⬆ Back to Top](#table-of-contents)**
 
 113. ### What is the purpose JSON stringify?
-     When sending data to a web server, the data has to be in a string format. You can achieve this by converting JSON object into a string using stringify() method.
-     ```javascript
-     var userJSON = {'name': 'John', age: 31}
-     var userString = JSON.stringify(user);
-     console.log(userString); //"{"name":"John","age":31}"
-     ```
+     When sending data to a web server, the data has to be in a string format.
 
      **[⬆ Back to Top](#table-of-contents)**
 
 114. ### How do you parse JSON string?
-     When receiving the data from a web server, the data is always in a string format. But you can convert this string value to javascript object using parse() method.
-     ```javascript
-     var userString = '{"name":"John","age":31}';
-     var userJSON = JSON.parse(userString);
-     console.log(userJSON);// {name: "John", age: 31}
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-115. ### Why do you need JSON?
-     When exchanging data between a browser and a server, the data can only be text. Since JSON is text only, it can easily be sent to and from a server, and used as a data format by any programming language.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-116. ### What are PWAs?
-     Progressive web applications (PWAs) are a type of mobile app delivered through the web, built using common web technologies including HTML, CSS and JavaScript. These PWAs are deployed to servers, accessible through URLs, and indexed by search engines.
+     When receiving the data from a web server, the data is always in a string format.
 
      **[⬆ Back to Top](#table-of-contents)**
 
@@ -1471,46 +1428,6 @@ Good luck with your interview 😊
 
      **[⬆ Back to Top](#table-of-contents)**
 
-120. ### How do you check whether a string contains a substring?
-     There are 3 possible ways to check whether a string contains a substring or not,
-     1. **Using includes:** ES6 provided `String.prototype.includes` method to test a string contains a substring
-     ```javascript
-     var mainString = "hello", subString = "hell";
-     mainString.includes(subString)
-     ```
-     2. **Using indexOf:** In an ES5 or older environments, you can use `String.prototype.indexOf` which returns the index of a substring. If the index value is not equal to -1 then it means the substring exist in the main string.
-     ```javascript
-     var mainString = "hello", subString = "hell";
-     mainString.indexOf(subString) !== -1
-     ```
-     3. **Using RegEx:** The advanced solution is using Regular expression's test method(`RegExp.test`), which allows for testing for against regular expressions
-     ```javascript
-     var mainString = "hello", regex = "/hell/";
-     regex.test(mainString)
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-121. ### How do you validate an email in javascript?
-     You can validate an email in javascript using regular expressions. It is recommended to do validations on the server side instead client side. Because the javascript can be disabled on the client side.
-     ```javascript
-     function validateEmail(email) {
-         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-         return re.test(String(email).toLowerCase());
-     }
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-     The above regular expression regular accepts unicode characters.
-122. ### How do you get the current url with javascript?
-     You can use `window.location.href` expression to get the current url path and you can use the same expression for updating the URL too. You can also use `document.URL` for read-only purpose but this solution has issues in FF.
-     ```javascript
-     console.log('location.href', window.location.href); // Returns full URL
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
 123. ### What are the various url properties of location object?
      The below `Location` object properties can be used to access URL components of the page,
      1. href - The entire URL
@@ -1521,141 +1438,6 @@ Good luck with your interview 😊
      6. pathname - The path name of the URL
      7. search - The query portion of the URL
      8. hash - The anchor portion of the URL
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-124. ### How do get query string values in javascript?
-     You can use URLSearchParams to get query string values in javascript. Let's see an example to get the client code value from URL query string,
-     ```javascript
-     const urlParams = new URLSearchParams(window.location.search);
-     const clientCode = urlParams.get('clientCode');
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-125. ### How do you check if a key exists in an object?
-     You can check whether a key exists in an object or not using three approaches,
-
-     1. **Using in operator:** You can use the in operator whether a key exists in an object or not
-     ```javascript
-     "key" in obj
-     ```
-     and If you want to check if a key doesn't exist, remember to use parenthesis,
-     ```javascript
-     !("key" in obj)
-     ```
-     2. **Using hasOwnProperty method:** You can use `hasOwnProperty` to particularly test for properties of the object instance (and not inherited properties)
-     ```javascript
-     obj.hasOwnProperty("key") // true
-     ```
-     3. **Using undefined comparision:** If you access a non-existing property from an object, the result is undefined. Let’s compare the properties against undefined to determine the existence of the property.
-     ```js
-     const user = {
-       name: 'John'
-     };
-
-     console.log(user.name !== undefined);     // true
-     console.log(user.nickName !== undefined); // false
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-126. ### How do you loop through or enumerate javascript object?
-     You can use the `for-in` loop to loop through javascript object. You can also make sure that the key you get is an actual property of an object, and doesn't come from the prototype using `hasOwnProperty` method.
-     ```javascript
-     var object = {
-         "k1": "value1",
-         "k2": "value2",
-         "k3": "value3"
-     };
-
-     for (var key in object) {
-         if (object.hasOwnProperty(key)) {
-             console.log(key + " -> " + object[key]); // k1 -> value1 ...
-         }
-     }
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-127. ### How do you test for an empty object?
-     There are different solutions based on ECMAScript versions
-     1. **Using Object entries(ECMA 7+):** You can use object entries length along with constructor type.
-     ```javascript
-     Object.entries(obj).length === 0 && obj.constructor === Object // Since date object length is 0, you need to check constructor check as well
-     ```
-     2. **Using Object keys(ECMA 5+):** You can use object keys length along with constructor type.
-     ```javascript
-     Object.keys(obj).length === 0 && obj.constructor === Object // Since date object length is 0, you need to check constructor check as well
-     ```
-     3. **Using for-in with hasOwnProperty(Pre-ECMA 5):** You can use for-in loop along with hasOwnProperty.
-     ```javascript
-     function isEmpty(obj) {
-       for(var prop in obj) {
-         if(obj.hasOwnProperty(prop)) {
-           return false;
-         }
-       }
-
-       return JSON.stringify(obj) === JSON.stringify({});
-     }
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-128. ### What is an arguments object?
-     The arguments object is an Array-like object accessible inside functions that contains the values of the arguments passed to that function. For example, let's see how to use arguments object inside sum function,
-     ```javascript
-     function sum() {
-         var total = 0;
-         for (var i = 0, len = arguments.length; i < len; ++i) {
-             total += arguments[i];
-         }
-         return total;
-     }
-
-     sum(1, 2, 3) // returns 6
-     ```
-     **Note:** You can't apply array methods on arguments object. But you can convert into a regular array as below.
-     ```js
-     var argsArray = Array.prototype.slice.call(arguments);
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-129. ### How do you make first letter of the string in an uppercase?
-     You can create a function which uses chain of string methods such as charAt, toUpperCase and slice methods to generate a string with first letter in uppercase.
-     ```javascript
-     function capitalizeFirstLetter(string) {
-         return string.charAt(0).toUpperCase() + string.slice(1);
-     }
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-130. ### What are the pros and cons of for loop?
-     The for-loop is a commonly used iteration syntax in javascript. It has both pros and cons
-     **Pros**
-     1. Works on every environment
-     2. You can use break and continue flow control statements
-     **Cons**
-     1. Too verbose
-     2. Imperative
-     3. You might face one-by-off errors
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-131. ### How do you display the current date in javascript?
-     You can use `new Date()` to generate a new Date object containing the current date and time. For example, let's display the current date in mm/dd/yyyy
-     ```javascript
-     var today = new Date();
-     var dd = String(today.getDate()).padStart(2, '0');
-     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-     var yyyy = today.getFullYear();
-
-     today = mm + '/' + dd + '/' + yyyy;
-     document.write(today);
-     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
@@ -1670,63 +1452,6 @@ Good luck with your interview 😊
 
      **[⬆ Back to Top](#table-of-contents)**
 
-133. ### How do you check if a string starts with another string?
-     You can use ECMAScript 6's `String.prototype.startsWith()` method to check a string starts with another string or not. But it is not yet supported in all browsers. Let's see an example to see this usage,
-     ```javascript
-     "Good morning".startsWith("Good"); // true
-     "Good morning".startsWith("morning"); // false
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-134. ### How do you trim a string in javascript?
-     JavaScript provided a trim method on string types to trim any whitespaces present at the begining or ending of the string.
-     ```javascript
-     "  Hello World   ".trim(); //Hello World
-     ```
-     If your browser(<IE9) doesn't support this method then you can use below polyfill.
-     ```javascript
-     if (!String.prototype.trim) {
-         (function() {
-             // Make sure we trim BOM and NBSP
-             var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
-             String.prototype.trim = function() {
-                 return this.replace(rtrim, '');
-             };
-         })();
-     }
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-135. ### How do you add a key value pair in javascript?
-     There are two possible solutions to add new properties to an object. Let's take a simple object to explain these solutions.
-     ```javascript
-     var object = {
-         key1: value1,
-         key2: value2
-     };
-     ```
-     1. **Using dot notation:** This solution is useful when you know the name of the property
-     ```javascript
-     object.key3 = "value3";
-     ```
-     2. **Using square bracket notation:** This solution is useful when the name of the property is dynamically determined.
-     ```javascript
-     obj["key3"] = "value3";
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-136. ### Is the !-- notation represents a special operator?
-     No,that's not a special operator. But it is a combination of 2 standard operators one after the other,
-     1. A logical not (!)
-     2. A prefix decrement (--)
-
-     At first, the value decremented by one and then tested to see if it is equal to zero or not for determining the truthy/falsy value.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
 137. ### How do you assign default values to variables?
      You can use the logical or operator `||` in an assignment expression to provide a default value. The syntax looks like as below,
      ```javascript
@@ -1736,93 +1461,8 @@ Good luck with your interview 😊
 
      **[⬆ Back to Top](#table-of-contents)**
 
-138. ### How do you define multiline strings?
-     You can define multiline string literals using '\' character followed by line terminator.
-     ```javascript
-     var str = "This is a \
-     very lengthy \
-     sentence!";
-     ```
-     But if you have a space after the '\' character, the code will look exactly the same, but it will raise a SyntaxError.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-139. ### What is an app shell model?
-     An application shell (or app shell) architecture is one way to build a Progressive Web App that reliably and instantly loads on your users' screens, similar to what you see in native applications. It is useful for getting some initial HTML to the screen fast without a network.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-140. ### Can we define properties for functions?
-     Yes, We can define properties for functions because functions are also objects.
-     ```javascript
-     fn = function(x) {
-        //Function code goes here
-     }
-
-     fn.name = "John";
-
-     fn.profile = function(y) {
-       //Profile code goes here
-     }
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-141. ### What is the way to find the number of parameters expected by a function?
-     You can use `function.length` syntax to find the number of parameters expected by a function. Let's take an example of `sum` function to calculate the sum of numbers,
-     ```javascript
-     function sum(num1, num2, num3, num4){
-         return num1 + num2 + num3 + num4;
-     }
-     sum.length // 4 is the number of parameters expected.
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
 142. ### What is a polyfill?
      A polyfill is a piece of JS code used to provide modern functionality on older browsers that do not natively support it. For example, Silverlight plugin polyfill can be used to mimic the functionality of an HTML Canvas element on Microsoft Internet Explorer 7.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-143. ### What are break and continue statements?
-     The break statement is used to "jumps out" of a loop. i.e, It breaks the loop and continues executing the code after the loop.
-     ```javascript
-     for (i = 0; i < 10; i++) {
-       if (i === 5) { break; }
-       text += "Number: " + i + "<br>";
-     }
-     ```
-     The continue statement is used to "jumps over" one iteration in the loop. i.e, It breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop.
-     ```javascript
-     for (i = 0; i < 10; i++) {
-         if (i === 5) { continue; }
-         text += "Number: " + i + "<br>";
-     }
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-144. ### What are js labels?
-     The label statement allows us to name loops and blocks in JavaScript. We can then use these labels to refer back to the code later. For example, the below code with labels avoids printing the numbers when they are same,
-     ```javascript
-     var i, j;
-
-     loop1:
-     for (i = 0; i < 3; i++) {
-        loop2:
-        for (j = 0; j < 3; j++) {
-           if (i === j) {
-              continue loop1;
-           }
-           console.log('i = ' + i + ', j = ' + j);
-        }
-     }
-
-     // Output is:
-     //   "i = 1, j = 0"
-     //   "i = 2, j = 0"
-     //   "i = 2, j = 1"
-     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
@@ -1832,49 +1472,6 @@ Good luck with your interview 😊
      2. It provides a single place to look for local variables
      3. Easy to avoid unwanted global variables
      4. It reduces the possibility of unwanted re-declarations
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-146. ### What are the benefits of initializing variables?
-     It is recommended to initialize variables because of the below benefits,
-     1. It gives cleaner code
-     2. It provides a single place to initialize variables
-     3. Avoid undefined values in the code
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-147. ### What are the recommendations to create new object?
-     It is recommended to avoid creating new objects using `new Object()`. Instead you can initialize values based on it's type to create the objects.
-     1. Assign {} instead of new Object()
-     2. Assign "" instead of new String()
-     3. Assign 0 instead of new Number()
-     4. Assign false instead of new Boolean()
-     5. Assign [] instead of new Array()
-     6. Assign /()/ instead of new RegExp()
-     7. Assign function (){} instead of new Function()
-
-     You can define them as an example,
-
-     ```javascript
-     var v1 = {};
-     var v2 = "";
-     var v3 = 0;
-     var v4 = false;
-     var v5 = [];
-     var v6 = /()/;
-     var v7 = function(){};
-     ```
-     **[⬆ Back to Top](#table-of-contents)**
-
-148. ### How do you define JSON arrays?
-     JSON arrays are written inside square brackets and array contain javascript objects. For example, the JSON array of users would be as below,
-     ```javascript
-     "users":[
-       {"firstName":"John", "lastName":"Abrahm"},
-       {"firstName":"Anna", "lastName":"Smith"},
-       {"firstName":"Shane", "lastName":"Warn"}
-     ]
-     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
@@ -1888,18 +1485,6 @@ Good luck with your interview 😊
 
      **[⬆ Back to Top](#table-of-contents)**
 
-150. ### Can you write a random integers function to print integers with in a range?
-     Yes, you can create a proper random function to return a random number between min and max (both included)
-     ```javascript
-     function randomInteger(min, max) {
-       return Math.floor(Math.random() * (max - min + 1) ) + min;
-     }
-     randomInteger(1, 100); // returns a random integer from 1 to 100
-     randomInteger(1, 1000); // returns a random integer from 1 to 1000
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
 151. ### What is tree shaking?
      Tree shaking is a form of dead code elimination. It means that unused modules will not be included in the bundle during the build process and for that it relies on the static structure of ES2015 module syntax,( i.e. import and export). Initially this has been popularized by the ES2015 module bundler `rollup`.
 
@@ -1907,38 +1492,6 @@ Good luck with your interview 😊
 
 152. ### What is the need of tree shaking?
      Tree Shaking can significantly reduce the code size in any application. i.e, The less code we send over the wire the more performant the application will be. For example, if we just want to create a “Hello World” Application using SPA frameworks then it will take around  few MBs, but by tree shaking it can bring down the size to just few hundred KBs. Tree shaking is been implemented in Rollup and Webpack bundlers.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-153. ### Is it recommended to use eval?
-     No, it allows arbitrary code to be run which casues a security problem. As we know that the eval() function is used to run text as code. In most of the cases, it should not be necessary to use it.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-154. ### What is a Regular Expression?
-     A regular expression is a sequence of characters that forms a search pattern. You can use this search pattern for searching data in a text. These can be used to perform all types of text search and text replace operations. Let's see the syntax format now,
-     ```javascript
-     /pattern/modifiers;
-     ```
-     For example, the regular expression or search pattern with case-insensitive username would be,
-     ```javascript
-     /John/i
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-155. ### What are the string methods available in Regular expression?
-     Regular Expressions has two string methods: search() and replace().
-     The search() method uses an expression to search for a match, and returns the position of the match.
-     ```javascript
-     var msg = "Hello John";
-     var n = msg.search(/John/i); // 6
-     ```
-     The replace() method is used return a modified string where the pattern is replaced.
-     ```javascript
-     var msg = "Hello John";
-     var n = msg.replace(/John/i, "Buttler"); // Hello Buttler
-     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
@@ -1957,7 +1510,6 @@ Good luck with your interview 😊
       var pattern = /one/g;
       var result = text.match(pattern); // one,one
     ```
-
 
    **[⬆ Back to Top](#table-of-contents)**
 
@@ -2000,15 +1552,6 @@ Good luck with your interview 😊
 
      **[⬆ Back to Top](#table-of-contents)**
 
-160. ### What is the purpose of exec method?
-     The purpose of exec method is similar to test method but it executes a search for a match in a specified string and returns a result array, or null instead of returning true/false.
-     ```javascript
-     var pattern = /you/;
-     console.log(pattern.exec("How are you?")); //["you", index: 8, input: "How are you?", groups: undefined]
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
 161. ### How do you change style of a HTML element?
      You can change inline style or classname of a HTML element using javascript
      1. ** Using style property:** You can modify inline style using style property
@@ -2019,49 +1562,6 @@ Good luck with your interview 😊
      ```javascript
       document.getElementById("title").style.className = "custom-title";
       ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-162. ### What would be the result of 1+2+'3'?
-     The output is going to be `33`. Since `1` and `2` are numeric values, the result of first two digits is going to be a numeric value `3`. The next digit is a string type value because of that the addition of numeric value `3` and string type value `3` is just going to be a concatenation value `33`.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-163. ### What is a debugger statement?
-     The debugger statement invokes any available debugging functionality, such as setting a breakpoint. If no debugging functionality is available, this statement has no effect.
-     For example, in the below function a debugger statement has been inserted. So execution is paused at the debugger statement just like a breakpoint in the script source.
-     ```javascript
-     function getProfile() {
-     // code goes here
-     debugger;
-     // code goes here
-     }
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-164. ### What is the purpose of breakpoints in debugging?
-     You can set breakpoints in the javascript code once the debugger statement is executed and debugger window pops up. At each breakpoint, javascript will stop executing, and let you examine the JavaScript values. After examining values, you can resume the execution of code using play button.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-165. ### Can I use reserved words as identifiers?
-     No, you cannot use the reserved words as variables, labels, object or function names. Let's see one simple example,
-     ```javascript
-     var else = "hello"; // Uncaught SyntaxError: Unexpected token else
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-166. ### How do you detect a mobile browser?
-     You can use regex which returns a true or false value depending on whether or not the user is browsing with a mobile.
-     ```javascript
-     window.mobilecheck = function() {
-       var mobileCheck = false;
-       (function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))) mobileCheck = true;})(navigator.userAgent||navigator.vendor||window.opera);
-       return mobileCheck;
-     };
-     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
@@ -2130,14 +1630,6 @@ Good luck with your interview 😊
 
      **[⬆ Back to Top](#table-of-contents)**
 
-171. ### How do you convert date to another timezone in javascript?
-     You can use toLocaleString() method to convert date in one timezone to another. For example, let's convert current date to British English timezone as below,
-     ```javascript
-     console.log(event.toLocaleString('en-GB', { timeZone: 'UTC' })); //29/06/2019, 09:56:00
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
 172. ### What are the properties used to get size of window?
      You can use innerWidth, innerHeight, clientWidth, clientHeight properties of windows, document element and document body objects to find the size of a window. Let's use them combination of these properties to calculate the size of a window or document,
      ```javascript
@@ -2148,37 +1640,6 @@ Good luck with your interview 😊
      var height = window.innerHeight
      || document.documentElement.clientHeight
      || document.body.clientHeight;
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-173. ### What is a conditional operator in javascript?
-     The conditional (ternary) operator is the only JavaScript operator that takes three operands which acts as a shortcut for if statement.
-     ```javascript
-     var isAuthenticated = false;
-     console.log(isAuthenticated ? 'Hello, welcome' : 'Sorry, you are not authenticated'); //Sorry, you are not authenticated
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-174. ### Can you apply chaining on conditional operator?
-     Yes, you can apply chaining on conditional operator similar to if … else if … else if … else chain. The syntax is going to be as below,
-     ```javascript
-     function traceValue(someParam) {
-         return condition1 ? value1
-              : condition2 ? value2
-              : condition3 ? value3
-              : value4;
-     }
-
-     // The above conditional operator is equivalent to:
-
-     function traceValue(someParam) {
-         if (condition1) { return value1; }
-         else if (condition2) { return value2; }
-         else if (condition3) { return value3; }
-         else { return value4; }
-     }
      ```
 
      **[⬆ Back to Top](#table-of-contents)**
@@ -2206,31 +1667,6 @@ Good luck with your interview 😊
      ( new Employee ).__proto__ === Employee.prototype;
      ( new Employee ).prototype === undefined;
      ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-177. ### Give an example where do you really need semicolon?
-     It is recommended to use semicolons after every statement in JavaScript. For example, in the below case it throws an error ".. is not a function" at runtime due to missing semicolon.
-     ```javascript
-     // define a function
-     var fn = function () {
-         //...
-     } // semicolon missing at this line
-
-     // then execute some code inside a closure
-     (function () {
-         //...
-     })();
-     ```
-     and it will be interpreted as
-     ```javascript
-     var fn = function () {
-         //...
-     }(function () {
-         //...
-     })();
-     ```
-     In this case, we are passing second function as an argument to the first function and then trying to call the result of the first function call as a function. Hence, the second function will fail with a "... is not a function" error at runtime.
 
      **[⬆ Back to Top](#table-of-contents)**
 
@@ -2275,22 +1711,6 @@ Good luck with your interview 😊
 
      **[⬆ Back to Top](#table-of-contents)**
 
-182. ### How to convert string to title case with javascript?
-     Title case means that the first letter of each word is capitalized. You can convert a string to title case using the below function,
-     ```javascript
-         function toTitleCase(str) {
-             return str.replace(
-                 /\w\S*/g,
-                 function(txt) {
-                     return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-                 }
-             );
-         }
-         toTitleCase("good morning john"); // Good Morning John
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
 183. ### How do you detect javascript disabled in the page?
      You can use `<noscript>` tag to detect javascript disabled or not. The code block inside `<noscript>` get executed when JavaScript is disabled, and are typically used to display alternative content when the page generated in JavaScript.
      ```javascript
@@ -2300,53 +1720,6 @@ Good luck with your interview 😊
      <noscript>
          <a href="next_page.html?noJS=true">JavaScript is disabled in the apge. Please click Next Page</a>
      </noscript>
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-184. ### What are various operators supported by javascript?
-     An operator is capable of manipulating(mathematical and logical computations) a certain value or operand. There are various operators supported by JavaScript as below,
-     1. **Arithmetic Operators:** Includes + (Addition),– (Subtraction), * (Multiplication), / (Division), % (Modulus), + + (Increment)  and – – (Decrement)
-     2. **Comparison Operators:** Includes = =(Equal),!= (Not Equal), ===(Equal with type), > (Greater than),> = (Greater than or Equal to),< (Less than),<= (Less than or Equal to)
-     3. **Logical Operators:** Includes &&(Logical AND),||(Logical OR),!(Logical NOT)
-     4. **Assignment Operators:** Includes = (Assignment Operator), += (Add and Assignment Operator), – = (Subtract and Assignment Operator), *= (Multiply and Assignment), /= (Divide and Assignment), %= (Modules and Assignment)
-     5. **Ternary Operators:** It includes conditional(: ?) Operator
-     6. **typeof Operator:** It uses to find type of variable. The syntax looks like `typeof variable`
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-185. ### What is a rest parameter?
-     Rest parameter is an improved way to handle function parameter which allows us to represent an indefinite number of arguments as an array. The syntax would be as below,
-     ```javascript
-     function f(a, b, ...theArgs) {
-       // ...
-     }
-     ```
-     For example, let's take a sum example to calculate on dynamic number of parameters,
-     ```javascript
-     function total(…args){
-     let sum = 0;
-     for(let i of args){
-     sum+=i;
-     }
-     return sum;
-     }
-     console.log(fun(1,2)); //3
-     console.log(fun(1,2,3)); //6
-     console.log(fun(1,2,3,4)); //13
-     console.log(fun(1,2,3,4,5)); //15
-     ```
-     **Note:** Rest parameter is added in ES2015 or ES6
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-186. ### What happens if you do not use rest parameter as a last argument?
-     The rest parameter should be the last argument, as its job is to collect all the remaining arguments into an array. For example, if you define a function like below it doesn’t make any sense and will throw an error.
-     ```javascript
-     function someFunc(a,…b,c){
-     //You code goes here
-     return;
-     }
      ```
 
      **[⬆ Back to Top](#table-of-contents)**
@@ -2377,109 +1750,6 @@ Good luck with your interview 😊
 
      **[⬆ Back to Top](#table-of-contents)**
 
-189. ### How do you determine whether object is frozen or not?
-     Object.isFrozen() method is used to determine if an object is frozen or not.An object is frozen if all of the below conditions hold true,
-     1. If it is not extensible.
-     2. If all of its properties are non-configurable.
-     3. If all its data properties are non-writable.
-     The usage is going to be as follows,
-     ```javascript
-     const object = {
-        property: 'Welcome JS world'
-     };
-     Object.freeze(object);
-     console.log(Object.isFrozen(object));
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-190. ### How do you determine two values same or not using object?
-     The Object.is() method determines whether two values are the same value. For example, the usage with different types of values would be,
-     ```javascript
-     Object.is('hello', 'hello');     // true
-     Object.is(window, window);   // true
-     Object.is([], []) // false
-     ```
-     Two values are the same if one of the following holds:
-     1. both undefined
-     2. both null
-     3. both true or both false
-     4. both strings of the same length with the same characters in the same order
-     5. both the same object (means both object have same reference)
-     6. both numbers and
-        both +0
-        both -0
-        both NaN
-        both non-zero and both not NaN and both have the same value.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-191. ### What is the purpose of using object is method?
-     Some of the applications of Object's `is` method are follows,
-     1. It is used for comparison of two strings.
-     2. It is used for comparison of two numbers.
-     3. It is used for comparing the polarity of two numbers.
-     4. It is used for comparison of two objects.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-192. ### How do you copy properties from one object to other?
-     You can use Object.assign() method which is used to copy the values and properties from one or more source objects to a target object.  It returns the target object which has properties and values copied from the target object. The syntax would be as below,
-     ```javascript
-     Object.assign(target, ...sources)
-     ```
-     Let's take exampple with one source and one target object,
-     ```javascript
-     const target = { a: 1, b: 2 };
-     const source = { b: 3, c: 4 };
-
-     const returnedTarget = Object.assign(target, source);
-
-     console.log(target); // { a: 1, b: 3, c: 4 }
-
-     console.log(returnedTarget); // { a: 1, b: 3, c: 4 }
-     ```
-     As observed in the above code, there is a common property(`b`) from source to target so it's value is been overwritten.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-193. ### What are the applications of assign method?
-     Below are the some of main applications of Object.assign() method,
-
-     1. It is used for cloning an object.
-     2. It is used to merge object with same properties.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-194. ### What is a proxy object?
-     The Proxy object is used to define custom behavior for fundamental operations such as property lookup, assignment, enumeration, function invocation, etc. The syntax would be as follows,
-
-     ```javascript
-     var p = new Proxy(target, handler);
-     ```
-
-     Let's take an example of proxy object,
-
-     ```javascript
-     var handler = {
-         get: function(obj, prop) {
-             return prop in obj ?
-                 obj[prop] :
-                 100;
-         }
-     };
-
-     var p = new Proxy({}, handler);
-     p.a = 10;
-     p.b = null;
-
-     console.log(p.a, p.b); // 10, null
-     console.log('c' in p, p.c); // false, 100
-     ```
-     In the above code, it uses `get` handler which define the behavior of the proxy when an operation is performed on it
-
-     **[⬆ Back to Top](#table-of-contents)**
-
 195. ### What is the purpose of seal method?
      The **Object.seal()** method is used seal an object, by preventing new properties from being added to it and marking all existing properties as non-configurable. But values of present properties can still be changed as long as they are writable. Let's see the below example to understand more about seal() method
      ```javascript
@@ -2495,50 +1765,8 @@ Good luck with your interview 😊
 
      **[⬆ Back to Top](#table-of-contents)**
 
-196. ### What are the applications of seal method?
-     Below are the main applications of Object.seal() method,
-     1. It is used for sealing objects and arrays.
-     2. It is used to make an object immutable.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
 197. ### What are the differences between freeze and seal methods?
      If an object is frozen using the Object.freeze() method then its properties become immutable and no changes can be made in them whereas if an object is sealed using the Object.seal() method then the changes can be made in the existing properties of the object.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-198. ### How do you determine if an object is sealed or not?
-     The Object.isSealed() method is used to determine if an object is sealed or not. An object is sealed if all of the below conditions hold true
-     1. If it is not extensible.
-     2. If all of its properties are non-configurable.
-     3. If it is not removable (but not necessarily non-writable).
-     Let's see it in the action
-     ```javascript
-     const object = {
-     property: 'Hello, Good morning'
-     };
-
-     Object.seal(object); // Using seal() method to seal the object
-
-     console.log(Object.isSealed(object));      // checking whether the object is sealed or not
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-199. ### How do you get enumerable key and value pairs?
-     The Object.entries() method is used to return an array of a given object's own enumerable string-keyed property [key, value] pairs, in the same order as that provided by a for...in loop. Let's see the functionality of object.entries() method in an example,
-     ```javascript
-     const object = {
-       a: 'Good morning',
-       b: 100
-     };
-
-     for (let [key, value] of Object.entries(object)) {
-       console.log(`${key}: ${value}`); // a: 'Good morning'
-                                        // b: 100
-     }
-     ```
-     **Note:** The order is not guaranteed as object defined.
 
      **[⬆ Back to Top](#table-of-contents)**
 
