@@ -440,38 +440,6 @@ Good luck with your interview 😊
 
     There are many ways to create objects in javascript as below,
 
-    1. **Object constructor:**
-
-         The simplest way to create an empty object is using Object constructor. Currently this approach is not recommended.
-
-         ```javascript
-         var object = new Object();
-         ```
-
-     2. **Object's create method:**
-
-         The create method of Object creates a new object by passing the prototype object as a parameter
-         ```javascript
-         var object = Object.create(null);
-         ```
-
-     3. **Object literal syntax:**
-         The object literal syntax is equivalent to create method when it passes null as parameter
-         ```javascript
-         var object = {};
-         ```
-
-     4. **Function constructor:**
-         Create any function and apply the new operator to create object instances,
-         ```javascript
-         function Person(name){
-          var object = {};
-          object.name=name;
-          object.age=21;
-          return object;
-         }
-         var object = new Person("Sudheer");
-         ```
 
      5. **Function constructor with prototype:**
          This is similar to function constructor but it uses prototype for their properties and methods,
@@ -498,18 +466,6 @@ Good luck with your interview 😊
 
         // If the result is a non-null object then use it otherwise just use the new instance.
         console.log(result && typeof result === 'object' ? result : newInstance);
-        ```
-
-    6. **ES6 Class syntax:**
-        ES6 introduces class feature to create the objects
-        ```javascript
-        class Person {
-         constructor(name) {
-            this.name = name;
-         }
-        }
-
-        var object = new Person("Sudheer");
         ```
 
     7. **Singleton pattern:**
@@ -575,46 +531,6 @@ Good luck with your interview 😊
 
     **[⬆ Back to Top](#table-of-contents)**
 
-4. ### What is JSON and its common operations?
-
-    **JSON** is a text-based data format following JavaScript object syntax, which was popularized by `Douglas Crockford`. It is useful when you want to transmit data across a network and it is basically just a text file with an extension of .json, and a MIME type of application/json
-    **Parsing:** Converting a string to a native object
-    ```javascript
-    JSON.parse(text)
-    ```
-    Stringification: **converting a native object to a string so it can be transmitted across the network
-    ```javascript
-    JSON.stringify(object)
-    ```
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-5. ### What is the purpose of array slice method?
-
-    The **slice()** method returns the selected elements in an array as a new array object. It selects the elements starting at the given start argument, and ends at the given optional end argument without including the last element. If you omit the second argument then it selects till the end. Some of the examples of this method are,
-    ```javascript
-    let arrayIntegers = [1, 2, 3, 4, 5];
-    let arrayIntegers1 = arrayIntegers.slice(0,2); // returns [1,2]
-    let arrayIntegers2 = arrayIntegers.slice(2,3); // returns [3]
-    let arrayIntegers3 = arrayIntegers.slice(4); //returns [5]
-    ```
-    **Note:** Slice method won't mutate the original array but it returns the subset as new array.
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-6. ### What is the purpose of array splice method?
-
-    The **splice()** method is used either adds/removes items to/from an array, and then returns the removed item. The first argument specifies the array position for insertion or deletion whereas the option second argument indicates the number of elements to be deleted. Each additional argument is added to the array. Some of the examples of this method are,
-    ```javascript
-    let arrayIntegersOriginal1 = [1, 2, 3, 4, 5];
-    let arrayIntegersOriginal2 = [1, 2, 3, 4, 5];
-    let arrayIntegersOriginal3 = [1, 2, 3, 4, 5];
-
-    let arrayIntegers1 = arrayIntegersOriginal1.splice(0,2); // returns [1, 2]; original array: [3, 4, 5]
-    let arrayIntegers2 = arrayIntegersOriginal2.splice(3); // returns [4, 5]; original array: [1, 2, 3]
-    let arrayIntegers3 = arrayIntegersOriginal3.splice(3, 1, "a", "b", "c"); //returns [4]; original array: [1, 2, 3, "a", "b", "c", 5]
-    ```
-    **Note:** Splice method modifies the original array and returns the deleted array.
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -672,29 +588,6 @@ Good luck with your interview 😊
 
     **[⬆ Back to Top](#table-of-contents)**
 
-10. ### What are lambda or arrow functions?
-    An arrow function is a shorter syntax for a function expression and does not have its own **this, arguments, super, or new.target**. These function are best suited for non-method functions, and they cannot be used as constructors.
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-11. ### What is a first class function?
-    In Javascript, functions are first class objects. First-class functions means when functions in that language are treated like any other variable.
-
-    For example, in such a language, a function can be passed as an argument to other functions, can be returned by another function and can be assigned as a value to a variable. For example, in the below example, handler functions assigned to a listener
-    ```javascript
-    const handler = () => console.log ('This is a click handler function');
-    document.addEventListener ('click', handler);
-    ```
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-12. ### What is a first order function?
-    First-order function is a function that doesn’t accept other function as an argument and doesn’t return a function as its return value.
-    ```javascript
-    const firstOrder = () => console.log ('I am a first order function!');
-    ```
-
-    **[⬆ Back to Top](#table-of-contents)**
 
 13. ### What is a higher order function?
     Higher-order function is a function that accepts other function as an argument or returns a function as a return value.
@@ -706,28 +599,7 @@ Good luck with your interview 😊
 
     **[⬆ Back to Top](#table-of-contents)**
 
-14. ### What is a unary function?
-    Unary function (i.e. monadic) is a function that accepts exactly one argument. Let us take an example of unary function. It stands for single argument accepted by a function.
-    ```javascript
-    const unaryFunction = a => console.log (a + 10); // Add 10 to the given argument and display the value
-    ```
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-15. ### What is currying function?
-    Currying is the process of taking a function with multiple arguments and turning it into a sequence of functions each with only a single argument. Currying is named after a mathematician Haskell Curry. By applying currying, a n-ary function turns it into a unary function. Let's take an example of n-ary function and how it turns into a currying function
-    ```javascript
-    const multiArgFunction = (a, b, c) => a + b + c;
-    const curryUnaryFunction = a => b => c => a + b + c;
-    curryUnaryFunction (1); // returns a function: b => c =>  1 + b + c
-    curryUnaryFunction (1) (2); // returns a function: c => 3 + c
-    curryUnaryFunction (1) (2) (3); // returns the number 6
-    ```
-    Curried functions are great to improve code re-usability and functional composition.
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-16. ### What is a pure function?
+16. ### (Possibly Redux) What is a pure function?
 
     A **Pure function** is a function where the return value is only determined by its arguments without any side effects. i.e, If you call a function with the same arguments 'n' number of times and 'n' number of places in the application then it will always return the same value. Let's take an example to see the difference between pure and impure functions,
     ```javascript
@@ -788,55 +660,6 @@ Good luck with your interview 😊
 
     **[⬆ Back to Top](#table-of-contents)**
 
-19. ### What is the reason to choose the name let as keyword?
-    Let is a mathematical statement that was adopted by early programming languages like Scheme and Basic. It has been borrowed from dozens of other languages that use let already as a traditional keyword as close to var as possible.
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-20. ### How do you redeclare variables in switch block without an error?
-    If you try to redeclare variables in a `switch block` then it will cause errors because there is only one block. For example, the below code block throws a syntax error as below,
-    ```javascript
-    let counter = 1;
-    switch(x) {
-      case 0:
-        let name;
-        break;
-
-      case 1:
-        let name; // SyntaxError for redeclaration.
-        break;
-    }
-    ```
-    To avoid this error, you can create a nested block inside a case clause will create a new block scoped lexical environment.
-    ```javascript
-    let counter = 1;
-        switch(x) {
-          case 0: {
-            let name;
-            break;
-          }
-          case 1: {
-            let name; // No SyntaxError for redeclaration.
-            break;
-          }
-        }
-    ```
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-21. ### What is Temporal Dead Zone?
-    The Temporal Dead Zone is a behavior in JavaScript that occurs when declaring a variable with the let and const keywords, but not with var. In ECMAScript 6, accessing a let or const variable before its declaration (within its scope) causes a ReferenceError. The time span when that happens, between the creation of a variable’s binding and its declaration, is called the temporal dead zone. Let's see this behavior with an example,
-    ```javascript
-    function somemethod() {
-      console.log(counter1); // undefined
-      console.log(counter2); // ReferenceError
-      var counter1 = 1;
-      let counter2 = 2;
-    }
-    ```
-
-    **[⬆ Back to Top](#table-of-contents)**
-
 22. ### What is IIFE(Immediately Invoked Function Expression)?
     IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined. The signature of it would be as below,
     ```javascript
@@ -866,49 +689,6 @@ Good luck with your interview 😊
     1. Maintainablity
     2. Reusability
     3. Namespacing
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-24. ### What is memoization?
-    Memoization is a programming technique which attempts to increase a function’s performance by caching its previously computed results.  Each time a memoized function is called, its parameters are used to index the cache. If the data is present, then it can be returned, without executing the entire function. Otherwise the function is executed and then the result is added to the cache.
-    Let's take an example of adding function with memoization,
-    ```javascript
-    const memoizAddition = () => {
-      let cache = {};
-     return (value) => {
-      if (value in cache) {
-       console.log('Fetching from cache');
-       return cache[value]; // Here, cache.value cannot be used as property name starts with the number which is not valid JavaScript  identifier. Hence, can only be accessed using the square bracket notation.
-      }
-      else {
-       console.log('Calculating result');
-       let result = value + 20;
-       cache[value] = result;
-       return result;
-      }
-     }
-    }
-    // returned function from memoizAddition
-    const addition = memoizAddition();
-    console.log(addition(20)); //output: 40 calculated
-    console.log(addition(20)); //output: 40 cached
-    ```
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-25. ### What is Hoisting?
-    Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution. Remember that JavaScript only hoists declarations, not initialisation.
-    Let's take a simple example of variable hoisting,
-    ```javascript
-    console.log(message); //output : undefined
-    var message = 'The variable Has been hoisted';
-    ```
-    The above code looks like as below to the interpreter,
-    ```javascript
-    var message;
-    console.log(message);
-    message = 'The variable Has been hoisted';
-    ```
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -972,11 +752,6 @@ Good luck with your interview 😊
     1. Maintainablity
     2. Reusability
     3. Namespacing
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-30. ### What is scope in javascript?
-    Scope is the accessibility of variables, functions, and objects in some particular part of your code during runtime. In other words, scope determines the visibility of variables and other resources in areas of your code.
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -1070,77 +845,8 @@ Good luck with your interview 😊
 
     **[⬆ Back to Top](#table-of-contents)**
 
-43. ### How do you access web storage?
-    The Window object implements the `WindowLocalStorage` and `WindowSessionStorage` objects which has `localStorage`(window.localStorage) and `sessionStorage`(window.sessionStorage) properties respectively. These properties create an instance of the Storage object, through which data items can be set, retrieved and removed for a specific domain and storage type (session or local).
-    For example, you can read and write on local storage objects as below
-    ```javascript
-    localStorage.setItem('logo', document.getElementById('logo').value);
-    localStorage.getItem('logo');
-    ```
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-44. ### What are the methods available on session storage?
-    The session storage provided methods for reading, writing and clearing the session data
-    ```javascript
-    // Save data to sessionStorage
-    sessionStorage.setItem('key', 'value');
-
-    // Get saved data from sessionStorage
-    let data = sessionStorage.getItem('key');
-
-    // Remove saved data from sessionStorage
-    sessionStorage.removeItem('key');
-
-    // Remove all saved data from sessionStorage
-    sessionStorage.clear();
-    ```
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-45. ### What is a storage event and its event handler?
-    The StorageEvent is an event that fires when a storage area has been changed in the context of another document. Whereas onstorage property is an EventHandler for processing storage events.
-    The syntax would be as below
-    ```javascript
-     window.onstorage = functionRef;
-    ```
-    Let's take the example usage of onstorage event handler which logs the storage key and it's values
-    ```javascript
-    window.onstorage = function(e) {
-      console.log('The ' + e.key +
-        ' key has been changed from ' + e.oldValue +
-        ' to ' + e.newValue + '.');
-    };
-    ```
-
-    **[⬆ Back to Top](#table-of-contents)**
-
 46. ### Why do you need web storage?
     Web storage is more secure, and large amounts of data can be stored locally, without affecting website performance. Also, the information is never transferred to the server. Hence this is recommended approach than Cookies.
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-47. ### How do you check web storage browser support?
-    You need to check browser support for localStorage and sessionStorage before using web storage,
-    ```javascript
-    if (typeof(Storage) !== "undefined") {
-      // Code for localStorage/sessionStorage.
-    } else {
-      // Sorry! No Web Storage support..
-    }
-    ```
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-48. ### How do you check web workers browser support?
-    You need to check browser support for web workers before using it
-    ```javascript
-    if (typeof(Worker) !== "undefined") {
-      // code for Web worker support.
-    } else {
-      // Sorry! No Web Worker support..
-    }
-    ```
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -1180,14 +886,6 @@ Good luck with your interview 😊
     ```javascript
     w = undefined;
     ```
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-50. ### What are the restrictions of web workers on DOM?
-    WebWorkers don't have access to below javascript objects since they are defined in an external files
-    1. Window object
-    2. Document object
-    3. Parent object
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -1274,22 +972,6 @@ Good luck with your interview 😊
 
     **[⬆ Back to Top](#table-of-contents)**
 
-56. ### What is a callback hell?
-    Callback Hell is an anti-pattern with multiple nested callbacks which makes code hard to read and debug when dealing with asynchronous logic. The callback hell looks like below,
-    ```javascript
-    async1(function(){
-        async2(function(){
-            async3(function(){
-                async4(function(){
-                    ....
-                });
-            });
-        });
-    });
-    ```
-
-    **[⬆ Back to Top](#table-of-contents)**
-
 57. ### What is server-sent events?
     Server-sent events (SSE) is a server push technology enabling a browser to receive automatic updates from a server via HTTP connection without resorting to polling. These are a one way communications channel - events flow from server to client only. This is been used in Facebook/Twitter updates, stock price updates, news feeds etc.
 
@@ -1303,18 +985,6 @@ Good luck with your interview 😊
       source.onmessage = function(event) {
         document.getElementById("output").innerHTML += event.data + "<br>";
       };
-    }
-    ```
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-59. ### How do you check browser support for server-sent events?
-    You can perform browser support for server-sent events before using it as below,
-    ```javascript
-    if(typeof(EventSource) !== "undefined") {
-      // Server-sent events supported. Let's have some code here!
-    } else {
-      // No server-sent events supported
     }
     ```
 
@@ -1420,60 +1090,8 @@ Good luck with your interview 😊
 
     **[⬆ Back to Top](#table-of-contents)**
 
-66. ### What is a strict mode in javascript?
-    Strict Mode is a new feature in ECMAScript 5 that allows you to place a program, or a function, in a “strict” operating context. This way it prevents certain actions from being taken and throws more exceptions. The literal expression `"use strict";` instructs the browser to use the javascript code in the Strict mode.
-
-    **[⬆ Back to Top](#table-of-contents)**
-
 67. ### Why do you need strict mode?
     Strict mode is useful to write "secure" JavaScript by notifying "bad syntax" into real errors. For example, it eliminates accidentally creating a global variable by throwing an error and also throws an error for assignment to a non-writable property, a getter-only property, a non-existing property, a non-existing variable, or a non-existing object.
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-68. ### How do you declare strict mode?
-    The strict mode is declared by adding "use strict"; to the beginning of a script or a function.
-    If declare at the beginning of a script, it has global scope.
-    ```javascript
-    "use strict";
-    x = 3.14; // This will cause an error because x is not declared
-    ```
-    and if you declare inside a function, it has local scope
-    ```javascript
-    x = 3.14;       // This will not cause an error.
-    myFunction();
-
-    function myFunction() {
-      "use strict";
-      y = 3.14;   // This will cause an error
-    }
-    ```
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-69. ### What is the purpose of double exclamation?
-    The double exclamation or negation(!!) ensures the resulting type is a boolean. If it was falsey (e.g. 0, null, undefined, etc.), it will be false, otherwise, true.
-    For example, you can test IE version using this expression as below,
-    ```javascript
-    let isIE8 = false;
-    isIE8 = !! navigator.userAgent.match(/MSIE 8.0/);
-    console.log(isIE8); // returns true or false
-    ```
-    If you don't use this expression then it returns the original value.
-    ```javascript
-    console.log(navigator.userAgent.match(/MSIE 8.0/));  // returns either an Array or null
-    ```
-    **Note:** The expression !! is not an operator, but it is just twice of ! operator.
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-70. ### What is the purpose of delete operator?
-    The delete keyword is used to delete the property as well as its value.
-    ```javascript
-    var user= {name: "John", age:20};
-    delete user.age;
-
-    console.log(user); // {name: "John"}
-    ```
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -1482,29 +1100,6 @@ Good luck with your interview 😊
     ```javascript
     typeof "John Abraham"     // Returns "string"
     typeof (1 + 2)        // Returns "number"
-    ```
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-72. ### What is undefined property?
-    The undefined property indicates that a variable has not been assigned a value, or not declared at all. The type of undefined value is undefined too.
-    ```javascript
-    var user;    // Value is undefined, type is undefined
-    console.log(typeof(user)) //undefined
-    ```
-    Any variable can be emptied by setting the value to undefined.
-    ```javascript
-    user = undefined
-    ```
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-73. ### What is null value?
-    The value null represents the intentional absence of any object value. It is one of JavaScript's primitive values. The type of null value is object.
-    You can empty the variable by setting the value to null.
-    ```javascript
-    var user = null;
-    console.log(typeof(user)) //object
     ```
 
     **[⬆ Back to Top](#table-of-contents)**
@@ -1519,14 +1114,6 @@ Good luck with your interview 😊
     | The null value is a primitive value that represents the null, empty, or non-existent reference. | The undefined value is a primitive value used when a variable has not been assigned a value.|
     | Indicates the absence of a value for a variable | Indicates absence of variable itself |
     | Converted to zero (0) while performing primitive operations | Converted to NaN while performing primitive operations |
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-75. ### What is eval?
-    The eval() function evaluates JavaScript code represented as a string. The string can be a JavaScript expression, variable, statement, or sequence of statements.
-    ```javascript
-    console.log(eval('1 + 2')); //  3
-    ```
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -1555,16 +1142,6 @@ Good luck with your interview 😊
 
     **[⬆ Back to Top](#table-of-contents)**
 
-78. ### What are the javascript data types?
-    Below are the list of javascript data types available
-    1. Number
-    2. String
-    3. Boolean
-    4. Object
-    5. Undefined
-
-    **[⬆ Back to Top](#table-of-contents)**
-
 79. ### What is isNaN?
     The isNaN() function is used to determine whether a value is an illegal number (Not-a-Number) or not. i.e, This function returns true if the value equates to NaN. Otherwise it returns false.
     ```javascript
@@ -1584,40 +1161,6 @@ Good luck with your interview 😊
 
     **[⬆ Back to Top](#table-of-contents)**
 
-81. ### What are global variables?
-    Global variables are those that are available throughout the length of the code without any scope. The var keyword is used to declare a local variable but if you omit it then it will become global variable
-    ```javascript
-    msg = "Hello" // var is missing, it becomes global variable
-    ```
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-82. ### What are the problems with global variables?
-    The problem with global variables is the conflict of variable names of local and global scope. It is also difficult to debug and test the code that relies on global variables.
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-83. ### What is NaN property?
-    The NaN property is a global property that represents "Not-a-Number" value. i.e, It indicates that a value is not a legal number. It is very rare to use NaN in a program but it can be used as return value for few cases
-    ```javascript
-    Math.sqrt(-1)
-    parseInt("Hello")
-    ```
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-84. ### What is the purpose of isFinite function?
-    The isFinite() function is used to determine whether a number is a finite, legal number. It returns false if the value is +infinity, -infinity, or NaN (Not-a-Number), otherwise it returns true.
-    ```javascript
-    isFinite(Infinity);  // false
-    isFinite(NaN);       // false
-    isFinite(-Infinity); // false
-
-    isFinite(100);         // true
-    ```
-
-    **[⬆ Back to Top](#table-of-contents)**
-
 85. ### What is an event flow?
     Event flow is the order in which event is received on the web page. When you click an element that is nested in various other elements, before your click actually reaches its destination, or target element, it must trigger the click event each of its parent elements first, starting at the top with the global window object.
     There are two ways of event flow
@@ -1628,6 +1171,12 @@ Good luck with your interview 😊
 
 86. ### What is event bubbling?
     Event bubbling is a type of event propagation where the event first triggers on the innermost target element, and then successively triggers on the ancestors (parents) of the target element in the same nesting hierarchy till it reaches the outermost DOM element.
+    
+    Event bubbling directs an event to its intended target, it works like this:
+- A button is clicked and the event is directed to the button
+- If an event handler is set for that object, the event is triggered
+- If no event handler is set for that object, the event bubbles up (like a bubble in water) to the object’s parent
+
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -1636,41 +1185,8 @@ Good luck with your interview 😊
 
     **[⬆ Back to Top](#table-of-contents)**
 
-88. ### How do you submit a form using JavaScript?
-    You can submit a form using JavaScript use document.form[0].submit(). All the form input's information is submitted using onsubmit event handler
-    ```javascript
-    function submit() {
-        document.form[0].submit();
-    }
-    ```
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-89. ### How do you find operating system details?
-    The window.navigator object contains information about the visitor's browser os details. Some of the OS properties are avaialble under platform property,
-    ```javascript
-    console.log(navigator.platform);
-    ```
-
-    **[⬆ Back to Top](#table-of-contents)**
-
 90. ### What is the difference between document load and DOMContentLoaded events?
     The `DOMContentLoaded` event is fired when the initial HTML document has been completely loaded and parsed, without waiting for assets(stylesheets, images, and subframes) to finish loading. Whereas The load event is fired when the whole page has loaded, including all dependent resources(stylesheets, images).
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-91. ### What is the difference between native, host and user objects?
-    `Native objects` are objects that are part of the JavaScript language defined by the ECMAScript specification. For example, String, Math, RegExp, Object, Function etc core objects defined in the ECMAScript spec.
-    `Host objects` are objects provided by the browser or runtime environment (Node). For example, window, XmlHttpRequest, DOM nodes etc considered as host objects.
-    `User objects` are objects defined in the javascript code. For example, User object created for profile information.
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-92. ### What are the tools or techniques used for debugging JavaScript code?
-    You can use below tools or techniques for debugging javascript
-    1. Chrome Devtools
-    2. debugger statement
-    3. Good old console.log statement
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -1724,16 +1240,6 @@ Good luck with your interview 😊
 
 97. ### Is JavaScript a compiled or interpreted language?
     JavaScript is an interpreted language, not a compiled language. An interpreter in the browser reads over the JavaScript code, interprets each line, and runs it. Nowadays  modern browsers use a technology known as Just-In-Time (JIT) compilation, which compiles JavaScript to executable bytecode just as it is about to run.
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-98. ### Is JavaScript a case-sensitive language?
-    Yes, JavaScript is a case sensitive language. The language keywords, variables, function & object names, and any other identifiers must always be typed with a consistent capitalization of letters.
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-99. ### Is there any relation between Java and JavaScript?
-    No, they are entirely two different programming languages and has nothing to do with each other. But both of them are Object Oriented Programming languages and like many other languages, they follow similar syntax for basic features(if, else, for, switch, break, continue etc).
 
     **[⬆ Back to Top](#table-of-contents)**
 
