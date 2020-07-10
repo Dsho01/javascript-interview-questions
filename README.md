@@ -2213,33 +2213,6 @@ Good luck with your interview 😊
 
      **[⬆ Back to Top](#table-of-contents)**
 
-300. ### How do you create an infinite loop?
-     You can create infinite loop using for and while loops without using any expressions. The for loop construct or syntax is better approach in terms of ESLint and code optimizer tools,
-     ```javascript
-     for (;;) {}
-     while(true) {
-     }
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-301. ### Why do you need to avoid with statement?
-     JavaScript's with statement was intended to provide a shorthand for writing recurring accesses to objects. So it can help reduce file size by reducing the need to repeat a lengthy object reference without performance penalty. Let's take an example where it is used to avoid redundancy when accessing an object several times.
-     ```javascript
-     a.b.c.greeting   = 'welcome';
-     a.b.c.age = 32;
-     ```
-     Using `with` it turns this into:
-     ```javascript
-     with(a.b.c) {
-             greeting   = "welcome";
-             age = 32;
-     }
-     ```
-     But this `with` statement creates performance problems since one cannot predict whether argument will refer to a real variable or to a property inside the with argument.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
 302. ### What is the output of below for loops?
      ```javascript
      for (var i = 0; i < 4; i++) { // global scope
@@ -2274,47 +2247,6 @@ Good luck with your interview 😊
 
 304. ### What is ES6?
      ES6 is the sixth edition of the javascript language and it was released on June 2015. It was initially known as ECMAScript 6 (ES6) and later renamed to ECMAScript 2015. Almost all the modern browsers support ES6 but for the old browsers there are many transpilers, like Babel.js etc.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-305. ### Can I redeclare let and const variables?
-     No, you cannot redeclare let and const variables. If you do, it throws below error
-     ```bash
-     Uncaught SyntaxError: Identifier 'someVariable' has already been declared
-     ```
-     **Explanation:** The variable declaration with `var` keyword refers to a function scope and the variable is treated as if it were declared at the top of the enclosing scope due to hoisting feature. So all the multiple declarations contributing to the same hoisted variable without any error. Let's take an example of re-declaring variables in the same scope for both var and let/const variables.
-     ```javascript
-     var name = 'John';
-     function myFunc() {
-         var name = 'Nick';
-         var name = 'Abraham'; // Re-assigned in the same function block
-         alert(name); // Abraham
-     }
-     myFunc();
-     alert(name); // John
-     ```
-     The block-scoped multi-declaration throws syntax error,
-     ```javascript
-     let name = 'John';
-     function myFunc() {
-         let name = 'Nick';
-         let name = 'Abraham'; // Uncaught SyntaxError: Identifier 'name' has already been declared
-         alert(name);
-     }
-
-     myFunc();
-     alert(name);
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-306. ### Is const variable makes the value immutable?
-     No, the const variable doesn't make the value immutable. But it disallows subsequent assignments(i.e, You can declare with assignment but can't assign another value later)
-     ```javascript
-     const userList = [];
-     userList.push('John'); // Can mutate even though it can't re-assign
-     console.log(userList); // ['John']
-     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
@@ -2353,94 +2285,6 @@ Good luck with your interview 😊
      var greeting = 'Welcome to JS World, Mr. ' + firstName + ' ' + lastName.`
      ```
      **Note:** You can use multi-line strings and string interpolation features with template literals.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-309. ### How do you write multi-line strings in template literals?
-     In ES5, you would have to use newline escape character('\n') and concatenation symbol(+) in order to get multi-line strings.
-     ```javascript
-     console.log('This is string sentence 1\n' +
-     'This is string sentence 2');
-     ```
-     Whereas in ES6, You don't need to mention any newline sequence character,
-     ```javascript
-     console.log(`This is string sentence
-     'This is string sentence 2`);
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-310. ### What are nesting templates?
-     The nesting templates is a feature supported with in template literals syntax to allow inner backticks inside a placeholder ${ } within the template. For example, the below nesting template is used to display the icons based on user permissions whereas outer template checks for platform type,
-     ```javascript
-     const iconStyles = `icon ${ isMobilePlatform() ? '' :
-      `icon-${user.isAuthorized ? 'submit' : 'disabled'}` }`;
-     ```
-     You can write the above usecase without nesting template feature as well. However, nesting template feature is more compact and readable.
-     ```javascript
-     //Without nesting templates
-      const iconStyles = `icon ${ isMobilePlatform() ? '' :
-       (user.isAuthorized ? 'icon-submit' : 'icon-disabled'}`;
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-311. ### What are tagged templates?
-     Tagged templates are the advanced form of templates in which tags allow you to parse template literals with a function. The tag function accepts first parameter as array of strings and remaining parameters as expressions. This function can also return manipulated string based on parameters. Let's see the usage of this tagged template behavior of an IT professional skill set in an organization,
-     ```javascript
-     var user1 = 'John';
-     var skill1 = 'JavaScript';
-     var experience1 = 15;
-
-     var user2 = 'Kane';
-     var skill2 = 'JavaScript';
-     var experience2 = 5;
-
-     function myInfoTag(strings, userExp, experienceExp, skillExp) {
-       var str0 = strings[0]; // "Mr/Ms. "
-       var str1 = strings[1]; // " is a/an "
-       var str2 = strings[2]; // "in"
-
-       var expertiseStr;
-       if (experienceExp > 10){
-         expertiseStr = 'expert developer';
-       } else if(skillExp > 5 && skillExp <= 10) {
-         expertiseStr = 'senior developer';
-       } else {
-         expertiseStr = 'junior developer';
-       }
-
-       return `${str0}${userExp}${str1}${experienceExp}{str3}`;
-     }
-
-     var output1 = myInfoTag`Mr/Ms. ${ user1 } is a/an ${ experience1 } in ${skill1}`;
-     var output2 = myInfoTag`Mr/Ms. ${ user2 } is a/an ${ experience2 } in ${skill2}`;
-
-     console.log(output1);// Mr/Ms. John is a/an expert developer in JavaScript
-     console.log(output2);// Mr/Ms. Kane is a/an junior developer in JavaScript
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-312. ### What are raw strings?
-     ES6 provides raw strings feature using `String.raw()` method which is used to get the raw string form of template strings. This feature allows you to access the raw strings as they were entered, without processing escape sequences. For example, the usage would be as below,
-     ```javascript
-     var calculationString = String.raw `The sum of numbers is \n${1+2+3+4}!`;
-     console.log(calculationString); // The sum of numbers is 10
-     ```
-     If you don't use raw strings, the newline character sequence will be processed by displaying the output in multiple lines
-     ```
-      var calculationString = `The sum of numbers is \n${1+2+3+4}!`;
-      console.log(calculationString);
-      // The sum of numbers is
-      // 10
-     ```
-     Also, the raw property is available on the first argument to the tag function
-     ```javascript
-     function tag(strings) {
-       console.log(strings.raw[0]);
-     }
-     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
@@ -2499,101 +2343,6 @@ Good luck with your interview 😊
 
      **[⬆ Back to Top](#table-of-contents)**
 
-316. ### What are enhanced object literals?
-     Object literals make it easy to quickly create objects with properties inside the curly braces. For example, it provides shorter syntax for common object property definition as below.
-     ```javascript
-     //ES6
-     var x = 10, y = 20
-     obj = { x, y }
-     console.log(obj); // {x: 10, y:20}
-     //ES5
-     var x = 10, y = 20
-     obj = { x : x, y : y}
-     console.log(obj); // {x: 10, y:20}
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-317. ### What are dynamic imports?
-     The dynamic imports using `import()` function syntax allows us to load modules on demand by using promises or the async/await syntax. Currently this features is in stage4 proposal(https://github.com/tc39/proposal-dynamic-import). The main advantage of dynamic imports is reduction of our bundle's sizes, the size/payload response of our requests and overall improvements in the user experience.
-     The syntax of dynamic imports would be as below,
-     ```javascript
-     import('./Module').then(Module => Module.method());
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-318. ### What are the use cases for dynamic imports?
-     Below are some of the use cases of using dynamic imports over static imports,
-     1. Import a module on-demand or conditionally. For example, if you want to load a polyfill on legacy browser
-     ```javascript
-     if (isLegacyBrowser()) {
-         import(···)
-         .then(···);
-     }
-     ```
-     2. Compute the module specifier at runtime. For example, you can use it for internationalization.
-     ```javascript
-     import(`messages_${getLocale()}.js`).then(···);
-     ```
-     3. Import a module from within a regular script instead a module.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-319. ### What are typed arrays?
-     Typed arrays are array-like objects from ECMAScript 6 API for handling binary data. JavaScript provides 8 Typed array types,
-
-     1. Int8Array: An array of 8-bit signed integers
-     2. Int16Array: An array of 16-bit signed integers
-     3. Int32Array: An array of 32-bit signed integers
-     4. Uint8Array: An array of 8-bit unsigned integers
-     5. Uint16Array: An array of 16-bit unsigned integers
-     6. Uint32Array: An array of 32-bit unsigned integers
-     7. Float32Array: An array of 32-bit floating point numbers
-     8. Float64Array: An array of 64-bit floating point numbers
-
-     For example, you can create an array of 8-bit signed integers as below
-
-     ```javascript
-     const a = new Int8Array();
-     // You can pre-allocate n bytes
-     const bytes = 1024
-     const a = new Int8Array(bytes)
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-320. ### What are the advantages of module loaders?
-     The module loaders provides the below features,
-     1. Dynamic loading
-     2. State isolation
-     3. Global namespace isolation
-     4. Compilation hooks
-     4. Nested virtualization
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-321. ### What is collation?
-     Collation is used for sorting a set of strings and searching within a set of strings. It is parameterized by locale and aware of Unicode. Let's take comparision and sorting features,
-     1. **Comparison:**
-     ```javascript
-     var list = [ "ä", "a", "z" ]; // In German,  "ä" sorts with "a" Whereas in Swedish, "ä" sorts after "z"
-     var l10nDE = new Intl.Collator("de");
-     var l10nSV = new Intl.Collator("sv");
-     console.log(l10nDE.compare("ä", "z") === -1); // true
-     console.log(l10nSV.compare("ä", "z") === +1); // true
-     ```
-     2. **Sorting:**
-     ```javascript
-     var list = [ "ä", "a", "z" ]; // In German,  "ä" sorts with "a" Whereas in Swedish, "ä" sorts after "z"
-     var l10nDE = new Intl.Collator("de");
-     var l10nSV = new Intl.Collator("sv");
-     console.log(list.sort(l10nDE.compare)) // [ "a", "ä", "z" ]
-     console.log(list.sort(l10nSV.compare)) // [ "a", "z", "ä" ]
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
 322. ### What is for...of statement?
      The for...of statement creates a loop iterating over iterable objects or elements such as built-in String, Array, Array-like objects (like arguments or NodeList), TypedArray, Map, Set, and user-defined iterables. The basic usage of for...of statement on arrays would be as below,
      ```javascript
@@ -2604,51 +2353,6 @@ Good luck with your interview 😊
        console.log(value); // 11 21 31 41 51
      }
      ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-323. ### What is the output of below spread operator array?
-     ```javascript
-     [...'John Resig']
-     ```
-     The output of the array is ['J', 'o', 'h', 'n', '', 'R', 'e', 's', 'i', 'g']
-     **Explanation:** The string is an iterable type and the spread operator with in an array maps every character of an iterable to one element. Hence, each character of a string becomes an element within an Array.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-324. ### Is PostMessage secure?
-     Yes, postMessages can be considered very secure as long as the programmer/developer is careful about checking the origin and source of an arriving message. But if you try to send/receive a message without verifying its source will create cross-site scripting attacks.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-325. ### What are the problems with postmessage target origin as wildcard?
-     The second argument of postMessage method specifies which origin is allowed to receive the message. If you use the wildcard “*” as an argument then any origin is allowed to receive the message. In this case, there is no way for the sender window to know if the target window is at the target origin when sending the message. If the target window has been navigated to another origin, the other origin would receive the data. Hence, this may lead to XSS vulnerabilities.
-     ```javascript
-     targetWindow.postMessage(message, '*');
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-326. ### How do you avoid receiving postMessages from attackers?
-     Since the listener listens for any message, an attacker can trick the application by sending a message from the attacker’s origin,  which gives an impression that the receiver received the message from the actual sender’s window. You can avoid this issue by validating the origin of the message on the receiver's end using “message.origin” attribute. For examples, let's check the sender's origin(http://www.some-sender.com) on receiver side(www.some-receiver.com),
-     ```javascript
-     //Listener on http://www.some-receiver.com/
-     window.addEventListener("message", function(message){
-         if(/^http://www\.some-sender\.com$/.test(message.origin)){
-              console.log('You recieved the data from valid sender', message.data);
-        }
-     });
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-327. ### Can I avoid using postMessages completely?
-     You cannot avoid using postMessages completely(or 100%). Even though your application doesn’t use postMessage considering the risks, a lot of third party scripts use postMessage to communicate with the third party service. So your application might be using postMessage without your knowledge.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-328. ### Is postMessages synchronous?
-     The postMessages are synchronous in IE8 browser but they are asynchronous in IE9 and all other modern browsers (i.e, IE9+, Firefox, Chrome, Safari).Due to this asynchronous behaviour, we use a callback mechanism when the postMessage is returned.
 
      **[⬆ Back to Top](#table-of-contents)**
 
@@ -2680,7 +2384,7 @@ Good luck with your interview 😊
      **[⬆ Back to Top](#table-of-contents)**
 
 333. ### What is the purpose of double tilde operator?
-     The double tilde operator(~~) is known as double NOT bitwise operator. This operator is going to be a quicker substitute for Math.floor().
+     The double tilde operatorr (\~\~) is known as double NOT bitwise operator. This operator is going to be a quicker substitute for Math.floor().
 
      **[⬆ Back to Top](#table-of-contents)**
 
@@ -2693,29 +2397,6 @@ Good luck with your interview 😊
      ```javascript
      String.fromCharCode(65,66,67); // returns 'ABC'
      ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-335. ### What is ArrayBuffer?
-     An ArrayBuffer object is used to represent a generic, fixed-length raw binary data buffer. You can create it as below,
-     ```javascript
-     let buffer = new ArrayBuffer(16); // create a buffer of length 16
-     alert(buffer.byteLength); // 16
-     ```
-     To manipulate an ArrayBuffer, we need to use a “view” object.
-     ```javascript
-     //Create a DataView referring to the buffer
-      let view = new DataView(buffer);
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-336. ### What is the output of below string expression?
-     ```javascript
-     console.log("Welcome to JS world"[0])
-     ```
-     The output of the above expression is "W".
-     **Explanation:** The bracket notation with specific index on a string returns the character at a specific location. Hence, it returns character "W" of the string. Since this is not supported in IE7 and below versions, you may need to use .charAt() method to get the desired result.
 
      **[⬆ Back to Top](#table-of-contents)**
 
@@ -2732,69 +2413,6 @@ Good luck with your interview 😊
      } catch (e) {
        console.log(e.name + ': ' + e.message);
      }
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-338. ### What is the purpose of EvalError object?
-     The EvalError object indicates an error regarding the global `eval()` function. Even though this exception is not thrown by JavaScript anymore, the EvalError object remains for compatibility. The syntax of this expression would be as below,
-     ```javascript
-     new EvalError([message[, fileName[, lineNumber]]])
-     ```
-     You can throw EvalError with in try...catch block as below,
-     ```javascript
-     try {
-       throw new EvalError('Eval function error', 'someFile.js', 100);
-     } catch (e) {
-       console.log(e.message, e.name, e.fileName);              // "Eval function error", "EvalError", "someFile.js"
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-339. ### What are the list of cases error thrown from non-strict mode to strict mode?
-     When you apply 'use strict'; syntax, some of the below cases will throw a SyntaxError before executing the script
-     1. When you use Octal syntax
-     ```javascript
-     var n = 022;
-     ```
-     2. Using `with` statement
-     3. When you use delete operator on a variable name
-     4. Using eval or arguments as variable or function argument name
-     5. When you use newly reserved keywords
-     6. When you declare a function in a block
-     ```javascript
-     if (someCondition) { function f() {} }
-     ```
-     Hence, the errors from above cases helpful to avoid errors in development/production environments.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-340. ### Is all objects have prototypes?
-     No. All objects have prototypes except for the base object which is created by the user, or an object that is created using the new keyword.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-341. ### What is the difference between a parameter and an argument?
-     Parameter is the variable name of a function definition whereas an argument represent the value given to a function when it is invoked. Let's explain this with a simple function
-     ```javascript
-     function myFunction(parameter1, parameter2, parameter3) {
-       console.log(arguments[0]) // "argument1"
-       console.log(arguments[1]) // "argument2"
-       console.log(arguments[2]) // "argument3"
-     }
-     myFunction("argument1", "argument2", "argument3")
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-342. ### What is the purpose of some method in arrays?
-     The some() method is used to test whether at least one element in the array passes the test implemented by the provided function. The method returns a boolean value. Let's take an example to test for any odd elements,
-     ```javascript
-     var array = [1, 2, 3, 4, 5, 6 ,7, 8, 9, 10];
-
-     var odd = element ==> element % 2 !== 0;
-
-     console.log(array.some(odd)); // true (the odd element exists)
      ```
 
      **[⬆ Back to Top](#table-of-contents)**
@@ -2859,27 +2477,6 @@ Good luck with your interview 😊
 
       **[⬆ Back to Top](#table-of-contents)**
 
-345. ### How do you create specific number of copies of a string?
-     The `repeat()` method is used to construct and returns a new string which contains the specified number of copies of the string on which it was called, concatenated together. Remember that this method has been added to the ECMAScript 2015 specification.
-     Let's take an example of Hello string to repeat it 4 times,
-     ```javascript
-     'Hello'.repeat(4);  // 'HelloHelloHelloHello'
-     ```
-346. ### How do you return all matching strings against a regular expression?
-     The `matchAll()` method can be used to return an iterator of all results matching a string against a regular expression. For example, the below example returns an array of matching string results against a regular expression,
-     ```javascript
-     let regexp = /Hello(\d?))/g;
-     let greeting = 'Hello1Hello2Hello3';
-
-     let greetingList = [...greeting.matchAll(regexp)];
-
-     console.log(greetingList[0]); //Hello1
-     console.log(greetingList[1]); //Hello2
-     console.log(greetingList[2]); //Hello3
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
 347. ### How do you trim a string at the beginning or ending?
      The `trim` method of string prototype is used to trim on both sides of a string. But if you want to trim especially at the beginning or ending of the string then you can use `trimStart/trimLeft` and `trimEnd/trimRight` methods. Let's see an example of these methods on a greeting message,
      ```javascript
@@ -2895,190 +2492,13 @@ Good luck with your interview 😊
 
      **[⬆ Back to Top](#table-of-contents)**
 
-348. ### What is the output of below console statement with unary operator?
-     Let's take console statement with unary operator as given below,
-     ```javascript
-     console.log(+ 'Hello');
-     ```
-     The output of the above console log statement returns NaN. Because the element is prefixed by the unary operator and the JavaScript interpreter will try to convert that element into a number type. Since the conversion fails, the value of the statement results in NaN value.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
 349. ### Does javascript uses mixins?
-     **[⬆ Back to Top](#table-of-contents)**
-350. ### What is a thunk function?
-     A thunk is just a function which delays the evaluation of the value. It doesn’t take any arguments but gives the value whenever you invoke the thunk. i.e, It is used not to execute now but it will be sometime in the future. Let's take a synchronous example,
-     ```javascript
-     const add = (x,y) => x + y;
-
-     const thunk = () => add(2,3);
-
-     thunk() // 5
-     ```
-     **[⬆ Back to Top](#table-of-contents)**
-
-351. ### What are asynchronous thunks?
-     The asynchronous thunks are useful to make network requests.  Let's see an example of network requests,
-     ```javascript
-     function fetchData(fn){
-       fetch('https://jsonplaceholder.typicode.com/todos/1')
-       .then(response => response.json())
-       .then(json => fn(json))
-     }
-
-
-     const asyncThunk = function (){
-        return fetchData(function getData(data){
-           console.log(data)
-       })
-     }
-
-     asyncThunk()
-     ```
-     The `getData` function won't be called immediately but it will be invoked only when the data is available from API endpoint. The setTimeout function is also used to make our code asynchronous. The best real time example is redux state management library which uses the asynchronous thunks to delay the actions to dispatch.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-352. ### What is the output of below function calls?
-     **Code snippet:**
-     const circle = {
-       radius: 20,
-       diameter() {
-         return this.radius * 2;
-       },
-       perimeter: () => 2 * Math.PI * this.radius
-     };
-
-     console.log(circle.diameter());
-     console.log(circle.perimeter());
-
-     **Output:**
-
-     The output is 40 and NaN. Remember that diameter is a regular function, whereas the value of perimeter is an arrow function. The this keyword of a regular function(i.e, diameter) refers to surrounding scope which is a class(i.e, Shape object). Whereas this keyword of perimeter function refers the surrounding scope which is window object. Since there is no radius property on window object it returns an undefined value and the multiple of number value returns NaN value.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-353. ### How to remove all line breaks from a string?
-     The easiest approach is using regular expressions to detect and replace newlines in the string. In this case, we use replace function along with string to replace with, which in our case is an empty string.
-     ```javascript
-     function remove_linebreaks( var message ) {
-         return message.replace( /[\r\n]+/gm, "" );
-     }
-     ```
-     In the above expression, g and m are for global and multiline flags.
-
-     **[⬆ Back to Top](#table-of-contents)**
-     
-354. ### What is the difference between reflow and repaint?
-     A *repaint* occurs when changes are made which affect the visibility of an element, but not its layout. Examples of this include outline, visibility, or background color. A *reflow* involves changes that affect the layout of a portion of the page (or the whole page). Resizing the browser window, changing the font, content changing (such as user typing text), using JavaScript methods involving computed styles, adding or removing elements from the DOM, and changing an element's classes are a few of the things that can trigger reflow. Reflow of an element causes the subsequent reflow of all child and ancestor elements as well as any elements following it in the DOM.
-
-      **[⬆ Back to Top](#table-of-contents)**
-
-355. ### What happens with negating an array?
-     Negating an array with `!` character will coerce the array into a boolean. Since Arrays are considered to be truthy So negating it will return `false`.
-     ```javascript
-     console.log(![]); // false
-     ```
-     **[⬆ Back to Top](#table-of-contents)**
-356. ### What happens if we add two arrays?
-     If you add two arrays together, it will convert them both to strings and concatenate them. For example, the result of adding arrays would be as below,
-     ```javascript
-     console.log(['a'] + ['b']);  // "ab"
-     console.log([] + []); // ""
-     console.log(![] + []); // "false", because ![] returns false.
-     ```
-     **[⬆ Back to Top](#table-of-contents)**
-
-357. ### What is the output of prepend additive operator on falsy values?
-     If you prepend additive(+) operator on falsy values(null, undefined, NaN, false, ""), the falsy value converts to a number value zero. Let's display them on browser console as below,
-     ```javascript
-     console.log(+null); // 0
-     console.log(+undefined);// 0
-     console.log(+false); // 0
-     console.log(+NaN); // 0
-     console.log(+""); // 0
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-358. ### How do you create self string using special characters?
-     The self string can be formed with the combination of `[]()!+` characters. You need to remember the below conventions to achieve this pattern.
-     1. Since Arrays are truthful values, negating the arrays will produce false: ![] === false
-     2. As per JavaScript coercing rules, the addition of arrays together will toString them: [] + [] === ""
-     3. Prepend an array with + operator will convert an array to false, the negation will make it true and finally converting the result will produce value '1': +(!(+[])) === 1
-
-     By applying the above rules, we can derive below conditions
-     ```javascript
-     ![] + [] === "false"
-     +!+[] === 1
-     ```
-     Now the character pattern would be created as below,
-
-     ```javascript
-           s               e               l               f
-      ^^^^^^^^^^^^^   ^^^^^^^^^^^^^   ^^^^^^^^^^^^^   ^^^^^^^^^^^^^
-
-      (![] + [])[3] + (![] + [])[4] + (![] + [])[2] + (![] + [])[0]
-      ^^^^^^^^^^^^^   ^^^^^^^^^^^^^   ^^^^^^^^^^^^^   ^^^^^^^^^^^^^
-     (![] + [])[+!+[]+!+[]+!+[]] +
-     (![] + [])[+!+[]+!+[]+!+[]+!+[]] +
-     (![] + [])[+!+[]+!+[]] +
-     (![] + [])[+[]]
-     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     (![]+[])[+!+[]+!+[]+!+[]]+(![]+[])[+!+[]+!+[]+!+[]+!+[]]+(![]+[])[+!+[]+!+[]]+(![]+[])[+[]]
-     ```
-     **[⬆ Back to Top](#table-of-contents)**
-
-358. ### How do you remove falsy values from an array?
-     You can apply filter method on array by passing Boolean as parameter. This way it removes all falsy values(0, undefined, null, false and "") from the array.
-     ```javascript
-     const myArray = [false, null, 1,5, undefined]
-     myArray.filter(Boolean); // [1, 5] // is same as myArray.filter(x => x);
-     ```
-
      **[⬆ Back to Top](#table-of-contents)**
 
 359. ### How do you get unique values of an array?
      You can get unique values of an array with the combination of `Set` and rest expression/spread(...) syntax.
      ```javascript
      console.log([...new Set([1, 2, 4, 4, 3])]); // [1, 2, 4, 3]
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-360. ### What is destructuring aliases?
-     Sometimes you would like to have destructured variable with a different name than the property name. In that case, you'll use a `: newName` to specify a name for the variable. This process is called destructuring aliases.
-     ```javascript
-     const obj = { x: 1 };
-     // Grabs obj.x as as { otherName }
-     const { x: otherName } = obj;
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-361. ### How do you map the array values without using map method?
-     You can map the array values without using `map` method by just using `from` method of Array. Let's map city names from Countries array,
-     ```javascrippt
-     const countries = [
-         { name: 'India', capital: 'Delhi' },
-         { name: 'US', capital: 'Washington' },
-         { name: 'Russia', capital: 'Moscow' },
-         { name: 'Singapore', capital: 'Singapore' },
-         { name: 'China', capital: 'Beijing' },
-         { name: 'France', capital: 'Paris' },
-     ];
-
-     const cityNames = Array.from(countries, ({ capital}) => capital);
-     console.log(cityNames); // ['Delhi, 'Washington', 'Moscow', 'Singapore', 'Beijing', 'Paris']
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-362. ### How do you empty an array?
-     You can empty an array quicky by setting the array length to zero.
-     ```javascript
-     let cities = ['Singapore', 'Delhi', 'London'];
-     cities.length = 0; // cities becomes []
      ```
 
      **[⬆ Back to Top](#table-of-contents)**
@@ -3173,16 +2593,6 @@ Good luck with your interview 😊
 
      **[⬆ Back to Top](#table-of-contents)**
 
-371. ### How do you verify that an argument is a Number or not?
-     The combination of IsNaN and isFinite methods are used to confirm whether an argument is a number or not.
-     ```javascript
-     function isNumber(n){
-         return !isNaN(parseFloat(n)) && isFinite(n);
-     }
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
 372. ### How do you create copy to clipboard button?
      You need to select the content(using .select() method) of input element and execute the copy command with execCommand (i.e, execCommand('copy')). You can also execute another system commands like cut and paste.
      ```javascript
@@ -3193,50 +2603,6 @@ Good luck with your interview 😊
        document.execCommand('copy');
      };
 
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-373. ### What is the shortcut to get timestamp?
-     You can use `new Date().getTime()` to get the current timestamp. There is an alternative shortcut to get the value.
-     ```javascript
-     console.log(+new Date());
-     console.log(Date.now());
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-374. ### How do you flattening multi dimensional arrays?
-     Flattening bi-dimensional arrays is trivial with Spread operator.
-     ```javascript
-     const biDimensionalArr = [11, [22, 33], [44, 55], [66, 77], 88, 99];
-     const flattenArr = [].concat(...biDimensionalArr); // [11, 22, 33, 44, 55, 66, 77, 88, 99]
-     ```
-     But you can make it work with multi-dimensional arrays by recursive calls,
-
-     ```javascript
-     function flattenMultiArray(arr) {
-         const flattened = [].concat(...arr);
-         return flattened.some(item => Array.isArray(item)) ? flattenMultiArray(flattened) : flattened;
-      }
-     const multiDimensionalArr = [11, [22, 33], [44, [55, 66, [77, [88]], 99]]];
-     const flatArr = flattenMultiArray(multiDimensionalArr); // [11, 22, 33, 44, 55, 66, 77, 88, 99]
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-375. ### What is the easiest multi condition checking?
-
-     You can use `indexOf` to compare input with multiple values instead of checking each value as one condition.
-     ```javascript
-     // Verbose approach
-     if (input === 'first' || input === 1 || input === 'second' || input === 2) {
-       someFunction();
-     }
-     // Shortcut
-     if (['first', 1, 'second', 2].indexOf(input) !== -1) {
-       someFunction();
-     }
      ```
 
      **[⬆ Back to Top](#table-of-contents)**
@@ -3257,16 +2623,6 @@ Good luck with your interview 😊
      <body oncontextmenu="return false;">
      ```
 
-     **[⬆ Back to Top](#table-of-contents)**
-
-378. ### What are wrapper objects?
-     Primitive Values like string,number and boolean don't have properties and methods but they are temporarily converted or coerce to an object(Wrapper object) when you try to perform actions on them. For example, if you apply toUpperCase() method on a primitive string value, it does not throw an error but returns uppercase of the string.
-     ```javascript
-     let name = "john";
-
-     console.log(name.toUpperCase());  // Behind the scenes treated as console.log(new String(name).toUpperCase());
-     ```
-     i.e, Every primitive except null and undefined have Wrapper Objects and the list of wrapper objects are are String,Number,Boolean,Symbol and BigInt.
      **[⬆ Back to Top](#table-of-contents)**
 
 379. ### What is AJAX?
@@ -3342,44 +2698,6 @@ Good luck with your interview 😊
      **Note:**  This API is still a working draft and only available in Chrome and Firefox browsers(ofcourse Chrome only implemented the specification)
      **[⬆ Back to Top](#table-of-contents)**
 
-383. ### What is minimum timeout throttling?
-     Both browser and NodeJS javascript environments, throttles with a minimum delay that is greater than 0ms. That means even though setting a delay of 0ms will not happen instantaneously.
-     **Browsers:** They have minimum delay of 4ms. This throttle occurs when successive calls are triggered due to callback nesting(certain depth) or after a certain number of successive intervals.
-     Note: The older browsers has minimum delay of 10ms.
-     **Nodejs:** They have minimum delay of 1ms. This throttle happens when delay is larger than 2147483647 or less than 1.
-     The best example to explain this timeout throttling behavior is the order of below code snippet.
-     ```js
-     function runMeFirst() {
-         console.log('My script is initialized');
-     }
-     setTimeout(runMeFirst, 0);
-     console.log('Script loaded');
-     ```
-     and the output would be in
-     ```cmd
-     Script loaded
-     My script is initialized
-     ```
-     If you don't use `setTimeout`, the order of logs will be in sequential.
-     ```js
-     function runMeFirst() {
-        console.log('My script is initialized');
-     }
-     runMeFirst();
-     console.log('Script loaded');
-     ```
-     and the output is,
-     ```cmd
-     My script is initialized
-     Script loaded
-     ```
-     **[⬆ Back to Top](#table-of-contents)**
-
-384. ### How do you implement zero timeout in modern browsers?
-     You can't use setTimeout(fn, 0) to execute the code immediately due to minimum delay of greater than 0ms. But you can use window.postMessage() to achieve this behavior.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
 385. ### What are tasks in event loop?
      A task is any javascript code/program which is scheduled to be run by the standard mechanisms such as initially starting to run a program, run an event callback, or an interval or timeout being fired. All these tasks are schedules on task queue.
      Below are the list of use cases to add tasks to the task queue,
@@ -3398,10 +2716,6 @@ Good luck with your interview 😊
 
 387. ### What are different event loops?
 
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-388. ### What is the purpose of queueMicrotask?
 
      **[⬆ Back to Top](#table-of-contents)**
 
@@ -3458,22 +2772,6 @@ Good luck with your interview 😊
 
      **[⬆ Back to Top](#table-of-contents)**
 
-395. ### How do you detect primitive or non primitive value type?
-     In JavaScript, primitive types include boolean, string, number, BigInt, null, Symbol and undefined. Whereas non-primitive types include the Objects. But you can easily identify them with the below function,
-     ```js
-     var myPrimitive = 30;
-     var myNonPrimitive = {};
-     function isPrimitive(val) {
-         return Object(val) !== val;
-     }
-
-     isPrimitive(myPrimitive);
-     isPrimitive(myNonPrimitive);
-     ```
-     If the value is a primitive data type, the Object constructor creates a new wrapper object for the value. But If the value is a non-primitive data type (an object), the Object constructor will give the same object.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
 396. ### What is babel?
      Babel is a JavaScript transpiler to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript in current and older browsers or environments. Some of the main features are listed below,
      1. Transform syntax
@@ -3497,34 +2795,6 @@ Good luck with your interview 😊
 
      **[⬆ Back to Top](#table-of-contents)**
 
-400. ### What is the difference between Function constructor and function declaration?
-     The functions which are created with `Function constructor` do not create closures to their creation contexts but they are always created in the global scope. i.e, the function can access own local variables and global scope variables only. Whereas function declarations can access outer function variables(closures) too.
-
-     Let's see this difference with an example,
-
-     **Function Constructor:**
-     ```js
-     var a = 100;
-     function createFunction() {
-         var a = 200;
-         return new Function('return a;');
-     }
-     console.log(createFunction()()); // 100
-     ```
-     **Function declaration:**
-     ```js
-     var a = 100;
-     function createFunction() {
-         var a = 200;
-         return function func() {
-             return a;
-         }
-     }
-     console.log(createFunction()()); // 200
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
 401. ### What is a Short circuit condition?
      Short circuit conditions are meant for condensed way of writing simple if statements. Let's demonstrate the scenario using an example. If you would like to login to a portal with an authentication condition, the expression would be as below,
      ```js
@@ -3535,25 +2805,6 @@ Good luck with your interview 😊
      Since the javascript logical operators evaluates from left to right, the above expression can be simplified using && logical operator
      ```js
      authenticate && loginToPorta();
-     ```
-     **[⬆ Back to Top](#table-of-contents)**
-
-402. ### What is the easiest way to resize an array?
-     The length property of array is useful to resize or empty an array quickly. Let's apply length property on number array to resize the number of elements from 5 to 2,
-     ```js
-     var array = [1, 2, 3, 4, 5];
-     console.log(array.length); // 5
-
-     array.length = 2;
-     console.log(array.length); // 2
-     console.log(array); // [1,2]
-     ```
-     and the array can be emptied too
-     ```js
-     var array = [1, 2, 3, 4, 5];
-     array.length = 0;
-     console.log(array.length); // 0
-     console.log(array); // []
      ```
      **[⬆ Back to Top](#table-of-contents)**
 
@@ -3698,45 +2949,6 @@ Good luck with your interview 😊
 
      **[⬆ Back to Top](#table-of-contents)**
 
-408. ### How do you make an object iterable in javascript?
-     By default, plain object is not iterable. But you can make the object iterable by defining a `Symbol.iterator` property on it.
-
-     Let's demonstrate this with an example,
-
-     ```js
-     const collection = {
-       one: 1,
-       two: 2,
-       three: 3,
-       [Symbol.iterator]() {
-         const values = Object.keys(this);
-         let i = 0;
-         return {
-           next: () => {
-             return {
-               value: this[values[i++]],
-               done: i > values.length
-             }
-           }
-         };
-       }
-     };
-
-     const iterator = collection[Symbol.iterator]();
-
-     console.log(iterator.next());    // → {value: 1, done: false}
-     console.log(iterator.next());    // → {value: 2, done: false}
-     console.log(iterator.next());    // → {value: 3, done: false}
-     console.log(iterator.next());    // → {value: undefined, done: true}
-     ```
-
-     The above process can be simplified using a generator function,
-
-     ```js
-     ```
-
-     **[⬆ Back to Top](#table-of-contents)**
-
 409. ### What is a Proper Tail Call?
      First, we should know about tail call before talking about "Proper Tail Call". A tail call is a subroutine or function call performed as the final action of a calling function. Whereas **Proper tail call(PTC)** is a technique where the program or code will not create additional stack frames for a recursion when the function call is a tail call.
 
@@ -3765,69 +2977,6 @@ Good luck with your interview 😊
      ```
 
      The above pattern returns the same output as first one. But the accumulator keeps track of total as an argument without using stack memory on recursive calls.
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-410. ### How do you check an object is a promise or not?
-
-  If you don't know if a value is a promise or not, wrapping the value as `Promise.resolve(value)` which returns a promise
-
-     ```js
-        function isPromise(object){
-          if(Promise && Promise.resolve){
-            return Promise.resolve(object) == object;
-          }else{
-            throw "Promise not supported in your environment"
-          }
-        }
-
-        var i = 1;
-        var promise = new Promise(function(resolve,reject){
-          resolve()
-        });
-
-        console.log(isPromise(i)); // false
-        console.log(isPromise(p)); // true
-    ```
-
-   Another way is to check for `.then()` handler type
-
-   ```js
-    function isPromise(value) {
-      return Boolean(value && typeof value.then === 'function');
-    }
-    var i = 1;
-    var promise = new Promise(function(resolve,reject){
-      resolve()
-    });
-
-    console.log(isPromise(i)) // false
-    console.log(isPromise(promise)); // true
-   ```
-
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-411. ### How to detect if a function is called as constructor?
-     You can use `new.target` pseudo-property to detect whether a function was called as constructor(using the new operator) or as regular function call.
-
-     1. If a constructor or function invoked using the new operator, new.target returns a reference to the constructor or function.
-     2. For function calls, new.target is undefined.
-
-     ```js
-     function Myfunc() {
-         if (new.target) {
-            console.log('called with new');
-         } else {
-            console.log('not called with new');
-         }
-     }
-
-     new Myfunc(); // called with new
-     Myfunc(); // not called with new
-     Myfunc.call({}); not called with new
-     ```
-
 
      **[⬆ Back to Top](#table-of-contents)**
 
